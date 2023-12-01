@@ -1,2 +1,2 @@
 # Code-Beginner
-Python and C++ Code 
+Python and C++ Codes for very basic ideas
