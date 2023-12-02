@@ -9,7 +9,7 @@ class SinglyLinkedList:
         self.tail = None
         self.length = 0
         
-    def head_insert(self,data):
+    def head_insert(self, data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
@@ -17,7 +17,7 @@ class SinglyLinkedList:
             self.tail = new_node
         self.length += 1
         
-    def tail_insert(self,data):
+    def tail_insert(self, data):
         new_node = Node(data)
         if self.tail is None:
             self.head = self.tail = new_node
@@ -26,11 +26,11 @@ class SinglyLinkedList:
             self.tail = new_node
         self.length += 1
         
-    def insert(self,N,data):
+    def insert(self, N, data):
         if N <1 or not isinstance(N,int):
-            raise ValueError("Position of insertion N="+str(N)+" has to be a postive integer!\n")
+            raise ValueError("Error! Position of insertion N="+str(N)+" has to be a postive integer!\n")
         if N > self.length+1:
-            raise ValueError("Position of insertion N="+str(N)+" exceeds the length (N="+str(self.length)+") of current SinglyLinkedList!\n")
+            raise ValueError("Error! Position of insertion N="+str(N)+" exceeds the length (N="+str(self.length)+") of current SinglyLinkedList!\n")
         if N == 1:
             self.head_insert(data)
             return
@@ -56,11 +56,11 @@ class SinglyLinkedList:
         if self.head is None:
             self.tail = None
         
-    def remove(self,N):#remove N-th node
+    def remove(self, N):#remove N-th node
         if self.head is None:
             return
         if N > self.length:
-            raise ValueError("Try to delete " + str(N) + "-th node, but it does not exist!\n")
+            raise ValueError("Error! Try to delete " + str(N) + "-th node, but it does not exist!\n")
         if N ==1:
             self.remove_head()
         else:
@@ -85,32 +85,42 @@ class SinglyLinkedList:
         
         
 #Test            
-sll=SinglyLinkedList()
-sll.tail_insert(2)
+sll = SinglyLinkedList()
+
 sll.head_insert(3)
-sll.head_insert(4)
-sll.head_insert(5)
-sll.tail_insert(1)
-sll.print_list()
-sll.remove(2)
-sll.print_list()
-sll.remove(1)
-sll.print_list()
-sll.remove(3)
-sll.print_list()
-#sll.remove(3)
-sll.remove(2)
-sll.print_list()
-sll.remove(1)
+sll.head_insert(2)
+sll.head_insert(1)
+print("After head inserts:")
 sll.print_list()
 
-sll.tail_insert(5)
 sll.tail_insert(4)
-sll.tail_insert(3)
+sll.tail_insert(5)
+print("After tail inserts:")
 sll.print_list()
-sll.head_insert(6)
+
+sll.insert(3, 2.5)
+print("After inserting 2.5 at position 3:")
 sll.print_list()
-#sll.insert(3.5,1)
-#sll.insert(8,1)
-sll.insert(3,"test")
+
+sll.remove_head()
+print("After removing head:")
 sll.print_list()
+
+sll.remove(3)
+print("After removing the element at position 3:")
+sll.print_list()
+
+try:
+    sll.insert(-1, 0)
+except ValueError as e:
+    print(e)
+
+try:
+    sll.remove(10)
+except ValueError as e:
+    print(e)
+    
+try:
+    sll.insert(3.5, 0)
+except ValueError as e:
+    print(e)
