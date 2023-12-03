@@ -33,6 +33,7 @@ class SinglyLinkedList{
             new_node->setNext(head);
             head = new_node;
             length += 1;
+            //update tail for the first inserted node
             if(tail == nullptr){tail=new_node;}
         }
     
