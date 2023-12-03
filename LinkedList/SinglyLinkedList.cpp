@@ -1,6 +1,9 @@
 #include <iostream>
 
 class Node{
+    private:
+        double val;
+        Node* next;
     public:
         //Constructors
         Node() : val(0), next(nullptr) {}
@@ -12,9 +15,6 @@ class Node{
         void setValue(double val){this->val = val;}
         Node* getNext(){return next;}
         void setNext(Node* Nextnode){next = Nextnode;}
-    private:
-        double val;
-        Node* next;
 };
 
 class SinglyLinkedList{
