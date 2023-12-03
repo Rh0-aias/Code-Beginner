@@ -30,7 +30,7 @@ class SinglyLinkedList:
         if N <1 or not isinstance(N,int):
             raise ValueError("Error! Position of insertion N="+str(N)+" has to be a postive integer!\n")
         if N > self.length+1:
-            raise ValueError("Error! Position of insertion N="+str(N)+" exceeds the length (N="+str(self.length)+") of current SinglyLinkedList!\n")
+            raise ValueError("Error! Position of insertion N="+str(N)+" exceeds the length (L="+str(self.length)+") of current SinglyLinkedList!\n")
         if N == 1:
             self.head_insert(data)
             return
