@@ -35,7 +35,7 @@ public:
     void Func_Outside();
 
     //If the name of input parameter is the same with member variable: 
-    //this->value is the member variable while value is the parameter input of SetValue function
+    //'this->a' is the member variable while 'a' is the parameter input of SetValue function
     void SetValue(int a){this->a = a;}
 
     int getValue(){ return a; }
